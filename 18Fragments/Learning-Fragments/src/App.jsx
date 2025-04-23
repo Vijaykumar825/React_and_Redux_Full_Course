@@ -30,10 +30,19 @@ import React from "react";
 */
 
 function App() {
-  let foodItems = ["Dal", "Green Vegtables", "roti", "sald", "Egg", "Ghee"];
+  let foodItems = [];
+
+  //let foodItems = ["Dal", "Green Vegtables", "roti", "sald", "Egg", "Ghee"];
+  //{foodItems.length === 0 && <h3>I'm still hungry</h3>} type1
+  //{foodItems.length === 0 ? <h3>I'm still hungry</h3> : null}type2
+  /*if(foodItems.length === 0)
+    {
+      return  <h3>I'm still hungry</h3>   type3*/
+
   return (
     <>
       <h1>Healthy Food</h1>
+      {foodItems.length === 0 ? <h3>I'm still hungry</h3> : null}
       <ul className="list-group">
         {foodItems.map((item) => (
           <li key={item} className="list-group-item">

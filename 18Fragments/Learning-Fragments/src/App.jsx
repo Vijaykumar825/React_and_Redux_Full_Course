@@ -1,6 +1,8 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
+import FoodItems from "./Components/FoodItems";
+import ErrorMessage from "./Components/ErrorMessage";
 
 /*function App() {
   return (
@@ -30,9 +32,9 @@ import React from "react";
 */
 
 function App() {
-  let foodItems = [];
+  // let foodItems = [];
 
-  //let foodItems = ["Dal", "Green Vegtables", "roti", "sald", "Egg", "Ghee"];
+  let foodItems = ["Dal", "Green Vegtables", "roti", "sald", "Egg", "Ghee"];
   //{foodItems.length === 0 && <h3>I'm still hungry</h3>} type1
   //{foodItems.length === 0 ? <h3>I'm still hungry</h3> : null}type2
   /*if(foodItems.length === 0)
@@ -42,14 +44,8 @@ function App() {
   return (
     <>
       <h1>Healthy Food</h1>
-      {foodItems.length === 0 ? <h3>I'm still hungry</h3> : null}
-      <ul className="list-group">
-        {foodItems.map((item) => (
-          <li key={item} className="list-group-item">
-            {item}
-          </li>
-        ))}
-      </ul>
+      <ErrorMessage items={foodItems}></ErrorMessage>
+      <FoodItems items={foodItems}></FoodItems>
     </>
   );
 }

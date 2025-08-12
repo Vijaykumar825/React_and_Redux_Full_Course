@@ -7,28 +7,12 @@ import { useState } from "react";
 import WelCome from "./componets/WelCome";
 
 function App() {
-  const initialtodoItems = [
-    /*{
-      name: "Buy Milk",
-      dueDate: "4-6-2025",
-    },
-    {
-      name: "Goto college",
-      dueDate: "4-6-2025",
-    },
-    {
-      name: "Live life",
-      dueDate: "Now",
-    },*/
-  ];
-  const [todoItems, setTodoItems] = useState(initialtodoItems);
+  const [todoItems, setTodoItems] = useState([]);
   const handleNewItem = (itemName, itemDueDate) => {
-    console.log(`New item  Added:${itemName}  Date:${itemDueDate}`);
-    const newtodoItems = [
-      ...todoItems,
+    setTodoItems((currValue) => [
+      ...currValue,
       { name: itemName, dueDate: itemDueDate },
-    ];
-    setTodoItems(newtodoItems);
+    ]);
   };
   const handleDeleteItem = (TodoItemName) => {
     const newTodoItems = todoItems.filter((item) => item.name != TodoItemName);

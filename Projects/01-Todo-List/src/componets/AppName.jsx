@@ -1,5 +1,9 @@
 function AppName() {
-  return <h1>Todo App</h1>;
+  return (
+    <center>
+      <h1>Todo App</h1>
+    </center>
+  );
 }
 
 export default AppName;

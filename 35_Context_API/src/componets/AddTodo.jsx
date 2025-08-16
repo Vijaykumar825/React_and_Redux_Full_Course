@@ -2,8 +2,6 @@ import { useState, useContext } from "react";
 import { TodoItemsContext } from "../store/todo-items-store"; // Assuming the context is imported
 
 function AddTodo() {
-  // In the screenshot, onNewItem was called but addNewItem was defined from context.
-  // This version uses the context function, which is a common pattern.
   const { addNewItem } = useContext(TodoItemsContext);
   const [todoName, setTodoName] = useState("");
   const [dueDate, setDueDate] = useState("");
@@ -23,7 +21,7 @@ function AddTodo() {
   };
 
   return (
-    <div className="container text-center">
+    <div className="container ">
       <div className="row kg-row">
         <div className="col-6">
           <input

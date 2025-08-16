@@ -1,8 +1,10 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
+import React, { useState } from "react";
 import FoodItems from "./Components/FoodItems";
 import ErrorMessage from "./Components/ErrorMessage";
+import Container from "./Components/Container";
+import FoodInput from "./Components/FoodInput";
 
 /*function App() {
   return (
@@ -34,18 +36,42 @@ import ErrorMessage from "./Components/ErrorMessage";
 function App() {
   // let foodItems = [];
 
-  let foodItems = ["Dal", "Green Vegtables", "roti", "sald", "Egg", "Ghee"];
   //{foodItems.length === 0 && <h3>I'm still hungry</h3>} type1
   //{foodItems.length === 0 ? <h3>I'm still hungry</h3> : null}type2
   /*if(foodItems.length === 0)
     {
       return  <h3>I'm still hungry</h3>   type3*/
 
+  //let [textToShow, setTextState] = useState();
+  let [foodItems, setFoodItems] = useState([
+    "Dal",
+    "Green Vegtables",
+    "roti",
+    "sald",
+  ]);
+
+  //console.log(`Current value of textState ${textToShow}`);
+
+  const onKeyDown = (event) => {
+    if (event.key === "Enter") {
+      let newFoodItem = event.target.value;
+      event.target.value = "";
+      let newItems = [...foodItems, newFoodItem];
+      setFoodItems(newItems);
+      console.log("Food value entered is " + newFoodItem);
+    }
+  };
+
   return (
     <>
-      <h1 className="Food-Heading">Healthy Food</h1>
-      <ErrorMessage items={foodItems}></ErrorMessage>
-      <FoodItems items={foodItems}></FoodItems>
+      <Container>
+        <h1 className="Food-Heading">Healthy Food</h1>
+
+        <FoodInput handleKeyDown={onKeyDown} />
+
+        <FoodItems items={foodItems}></FoodItems>
+        <ErrorMessage items={foodItems}></ErrorMessage>
+      </Container>
     </>
   );
 }

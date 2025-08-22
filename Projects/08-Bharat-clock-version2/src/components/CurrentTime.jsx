@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 let CurrentTime = () => {
   const [time, setTime] = useState(new Date());
+  //console.log("Current Time painted");
   useEffect(() => {
     console.log("interval is setUped");
     const intervalId = setInterval(() => {

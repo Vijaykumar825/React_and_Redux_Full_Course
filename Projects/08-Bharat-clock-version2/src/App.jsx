@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
+  //console.log("Current time");
   return (
     <div>
       <center>
